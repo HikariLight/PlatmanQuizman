@@ -45,7 +45,8 @@ client.on("messageCreate", (message) => {
                 message.channel.send("Playing!");
 
                 if(command[2] !== undefined){
-                    setTimeout(() => player.pause(), parseInt(command[2]) * 1000);
+                    let duration = parseInt(command[2]) + 2; // There's always a 2 second delay before playing starts which takes up actual playing time.
+                    setTimeout(() => player.pause(), duration * 1000);
                 }
 
             } catch(error){
