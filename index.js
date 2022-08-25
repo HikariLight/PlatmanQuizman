@@ -19,6 +19,8 @@ const client = new Client({
             ]
 });
 
+const player = createAudioPlayer();
+
 client.once("ready", () => {
     console.log("Ready!");
     client.user.setActivity("you through your window.", {type: ActivityType.Watching});
@@ -33,7 +35,6 @@ client.on("messageCreate", (message) => {
         const command = message.content.split(" ");
 
         if(command[0] == "play"){
-            const player = createAudioPlayer();
             const stream = ytdl(command[1], { filter: 'audioonly' });
             const resource = createAudioResource(stream);
 
