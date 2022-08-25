@@ -1,9 +1,7 @@
-const { createAudioResource, getVoiceConnections, getVoiceConnection, createAudioPlayer } = require('@discordjs/voice');
+const { createAudioResource, getVoiceConnections } = require('@discordjs/voice');
 const ytdl = require('ytdl-core');
 
-const player = createAudioPlayer();
-
-module.exports = (message, command) => {
+module.exports = (message, command, player) => {
     const stream = ytdl(command[1], { filter: 'audioonly' });
     const resource = createAudioResource(stream);
 

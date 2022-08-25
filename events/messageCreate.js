@@ -3,9 +3,7 @@ const caught = require("../commands/caught");
 const play = require("../commands/play");
 const pause = require("../commands/pause");
 
-const prefix = "&";
-
-module.exports = (client, message) => {
+module.exports = (client, prefix, player, message) => {
 
     if(message.guildId === null){
         const command = message.content.split(" ");
@@ -14,11 +12,11 @@ module.exports = (client, message) => {
 
         switch(command[0]){
             case "play":
-                play(message, command);
+                play(message, command, player);
                 break;
 
             case "pause":
-                pause(message);
+                pause(message, player);
                 break;
         }
     }
