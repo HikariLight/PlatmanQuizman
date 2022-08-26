@@ -25,6 +25,8 @@ module.exports = (client, prefix, player, message) => {
                 case "unpause":
                     unpause(message, player);
                     break;
+                default:
+                    message.channel.send("Uh.. Try that again. The right way this time.");
             }
         }
 
