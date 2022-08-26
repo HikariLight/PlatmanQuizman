@@ -2,6 +2,7 @@ const stalk = require("../commands/stalk");
 const caught = require("../commands/caught");
 const play = require("../commands/play");
 const pause = require("../commands/pause");
+const unpause = require("../commands/unpause");
 
 module.exports = (client, prefix, player, message) => {
 
@@ -17,6 +18,10 @@ module.exports = (client, prefix, player, message) => {
 
             case "pause":
                 pause(message, player);
+                break;
+
+            case "unpause":
+                unpause(message, player);
                 break;
         }
     }

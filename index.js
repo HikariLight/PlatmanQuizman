@@ -25,6 +25,6 @@ fs.readdir("./events/", (err, files) => {
       const eventName = file.split(".")[0];
       client.on(eventName, (...args) => eventHandler(client, prefix, player, ...args));
     });
-  });
+});
 
 client.login(process.env.DISCORD_TOKEN);
