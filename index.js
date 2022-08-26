@@ -1,4 +1,4 @@
-const { createAudioPlayer } = require('@discordjs/voice');
+const { createAudioPlayer, NoSubscriberBehavior } = require('@discordjs/voice');
 const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const fs = require("fs");
 require('dotenv').config()
@@ -17,7 +17,11 @@ const client = new Client({
 });
 
 const prefix = "&";
-const player = createAudioPlayer();
+const player = createAudioPlayer({
+    behaviors: {
+      noSubscriber: NoSubscriberBehavior.Play
+    }
+});
 
 fs.readdir("./events/", (err, files) => {
     files.forEach(file => {

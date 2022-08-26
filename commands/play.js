@@ -1,15 +1,10 @@
 const { createAudioResource, getVoiceConnections, demuxProbe } = require('@discordjs/voice');
-const ytdl = require('ytdl-core');
-
-async function probeAndCreateResource(readableStream) {
-	const { stream, type } = await demuxProbe(readableStream);
-	return createAudioResource(stream, { inputType: type });
-}
+const play = require('play-dl')
 
 module.exports = async (message, command, player) => {
-    const stream = ytdl(command[1], { filter: 'audioonly' });
+    const stream = await play.stream(command[1]);
 
-    const resource = await probeAndCreateResource(stream);
+    const resource = createAudioResource(stream.stream, {inputType: stream.type});
 
     const [voiceConnection] = getVoiceConnections().values();
 
