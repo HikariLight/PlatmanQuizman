@@ -39,6 +39,9 @@ module.exports = (client, prefix, player, message) => {
             case "caught":
                 caught(message);
                 break;
+
+            default:
+                message.channel.send("Tf did you just say to me?");
         }
     }
 }
