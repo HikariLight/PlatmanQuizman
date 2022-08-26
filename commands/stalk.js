@@ -1,10 +1,11 @@
 const { joinVoiceChannel } = require('@discordjs/voice');
 require('dotenv').config()
 
-const vcId = process.env.vcId;
+module.exports = (message) => {
 
-module.exports = (client, message) => {
-    const voiceChannel = client.channels.cache.get(vcId);
+    if (!message.member.voice?.channel) return message.channel.send('Where am I supposed to go? Connect to a Voice Channel bish.');
+
+    const voiceChannel = message.member.voice?.channel;
 
     const voiceConnection = joinVoiceChannel({
         channelId: voiceChannel.id,

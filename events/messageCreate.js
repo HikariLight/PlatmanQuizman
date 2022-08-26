@@ -35,7 +35,7 @@ module.exports = (client, prefix, player, message) => {
 
             switch(command[1]){
                 case "stalk":
-                    stalk(client, message);
+                    stalk(message);
                     break;
 
                 case "caught":
