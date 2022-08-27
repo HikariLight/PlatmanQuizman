@@ -1,5 +1,6 @@
 const stalk = require("../commands/stalk");
 const caught = require("../commands/caught");
+const help = require("../commands/help");
 const play = require("../commands/play");
 const pause = require("../commands/pause");
 const unpause = require("../commands/unpause");
@@ -42,6 +43,10 @@ module.exports = (client, prefix, player, message) => {
 
                 case "caught":
                     caught(message);
+                    break;
+                
+                case "help":
+                    help(message);
                     break;
 
                 default:
