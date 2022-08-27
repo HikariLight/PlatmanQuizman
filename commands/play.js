@@ -1,4 +1,4 @@
-const { createAudioResource, getVoiceConnections, demuxProbe } = require('@discordjs/voice');
+const { createAudioResource, getVoiceConnections } = require('@discordjs/voice');
 const play = require('play-dl')
 
 module.exports = async (message, command, player) => {

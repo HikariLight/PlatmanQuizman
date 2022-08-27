@@ -10,7 +10,9 @@ module.exports = (client, prefix, player, message) => {
 
     if(allowedUsers.includes(message.author.id)){
         if(message.guildId === null){
-            const command = message.content.split(" ");
+            const command = message.content.split(" ").filter(item => item.length > 0);
+
+            console.log(command);
 
             console.log(`Direct message: ${message.content}`);
 
@@ -26,17 +28,18 @@ module.exports = (client, prefix, player, message) => {
                 case "unpause":
                     unpause(message, player);
                     break;
+                
                 default:
                     message.channel.send("Uh.. Try that again. The right way this time.");
             }
         }
 
         else if(message.guildId !== null && message.content.startsWith(prefix)){
-            const command = message.content.split(prefix);
+            const command = message.content.split(prefix).filter(item => item.length > 0);;
 
             console.log(`Server message: ${message.content}`);
 
-            switch(command[1]){
+            switch(command[0]){
                 case "stalk":
                     stalk(message);
                     break;
@@ -44,7 +47,7 @@ module.exports = (client, prefix, player, message) => {
                 case "caught":
                     caught(message);
                     break;
-                
+
                 case "help":
                     help(message);
                     break;
