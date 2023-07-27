@@ -10,6 +10,7 @@ Default prefix: &
 |---------|------------------------------------|
 | stalk   | Connect to a voice channel.        |
 | caught  | Disconnect from the voice channel. |
+| spy  | Saves all the messages in the channel where the command was used to a local json file: "Server-channel.json" |
 
 The prefix isn't needed for DM commands.
 
